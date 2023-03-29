@@ -10,7 +10,14 @@ services:
     environment:
       - SALT_SHARED_SECRET=mysecretpassword
     volumes:
+      # Mount master configuration drop-in dir:
       - ./salt/etc/salt/master.d:/etc/salt/master.d
+      
+      # Mount dir where salt master stores its own keys and accepted minion keys
+      - ./salt/etc/salt/pki/:/etc/salt/pki/
+      
+      # Mount dir where salt states are stored:
       - ./salt/srv/salt/:/srv/salt/
-      - ./id_rsa:/opt/id_rsa:ro
-      - ./id_rsa.pub:/opt/id_rsa.pub:ro
+  
+      # Mount dir with salt pillar files:
+      - ./salt/srv/pillar/:/srv/pillar/:ro
