@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  salt:
+    container_name: salt
+    hostname: salt
+    image: docker.io/saltstack/salt
+    ports:
+      - "8000:8000"
+      - "4505-4506:4505-4506"
+    environment:
+      - SALT_SHARED_SECRET=mysecretpassword
+    volumes:
+      - ./salt/etc/salt/master.d:/etc/salt/master.d
+      - ./salt/srv/salt/:/srv/salt/
+      - ./id_rsa:/opt/id_rsa:ro
+      - ./id_rsa.pub:/opt/id_rsa.pub:ro
