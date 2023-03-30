@@ -16,8 +16,7 @@ services:
       # Mount dir where salt master stores its own keys and accepted minion keys
       - ./salt/etc/salt/pki/:/etc/salt/pki/
       
-      # Mount dir where salt states are stored:
-      - ./salt/srv/salt/:/srv/salt/
+      # Mount salt fire root:
+      - ./salt/srv/:/srv/
+
   
-      # Mount dir with salt pillar files:
-      - ./salt/srv/pillar/:/srv/pillar/:ro

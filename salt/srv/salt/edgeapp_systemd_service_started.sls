@@ -5,6 +5,7 @@ edgeapp_systemd_unit:
     - name: /etc/systemd/system/edgeapp.service
     - source: salt://edgeapp_systemd_unit.jinja
     - template: jinja
+
   module.run:
     - name: service.systemctl_reload
     - onchanges:

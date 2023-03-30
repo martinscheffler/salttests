@@ -12,5 +12,8 @@ Accept key:
 > salt-key
 > salt-key -a <minion-name>
 
+Distribute pillar state:
+> salt '*' saltutil.refresh_pillar
+
 In master container, apply the edgeapp_started state:
 > salt '*' state.sls edgeapp_started 
