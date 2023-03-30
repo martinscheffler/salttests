@@ -17,3 +17,4 @@ Distribute pillar state:
 
 In master container, apply the edgeapp_started state:
 > salt '*' state.sls edgeapp_started 
+
